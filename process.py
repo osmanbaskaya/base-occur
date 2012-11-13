@@ -6,7 +6,7 @@ __author__ = "Osman Baskaya"
 from sklearn.feature_extraction.text import CountVectorizer
 from os import listdir
 
-PATH = '/home/tyr/playground/wed/'
+PATH = '/home/tyr/playground/base-occur/'
 INPUT_DIR = "%input/" % PATH
 
 def get_vectors(filenames):

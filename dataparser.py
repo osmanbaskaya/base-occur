@@ -11,7 +11,7 @@ import re
 
 wordlist_file = 'words.txt'
 corpus = 'english.xml'
-PATH = '/home/tyr/playground/wed/corpus/'
+PATH = '/home/tyr/playground/base-occur/corpus/'
 
 
 class DataParser(object):
