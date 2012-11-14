@@ -19,6 +19,8 @@ lib
 lib64
 corpus
 input
+neighbors
+vectors
 english.xml
 # Installer logs
 pip-log.txt
@@ -35,3 +37,7 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+keys
+*.*~
+
