@@ -66,7 +66,7 @@ def calculate_error(func, list1, list2):
     return func(list1, list2)
 
 
-def make_experiment(factorization=False, nfactor=40):
+def discriminate(factorization=False, nfactor=40):
     
     
     
@@ -156,8 +156,8 @@ def main():
     #words = open(wordlist_file).readlines()
     #words = [word.strip() for word in words]
     #write_vectors_aft_svd(words)
-    make_experiment(factorization=True, nfactor=100)
-    #make_experiment(factorization=False, nfactor=60)
+    discriminate(factorization=True, nfactor=100)
+    #discriminate(factorization=False, nfactor=60)
 
 
 if __name__ == '__main__':
