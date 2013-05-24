@@ -70,14 +70,14 @@ def discriminate(factorization=False, nfactor=40):
     
     
     
-    #predicted_k = get_k_values()
-    real_k = get_k_values(fname='words.k')
-    predicted_k = real_k
+    #real_k = get_k_values(fname='words.k')
+    predicted_k = get_k_values()
+    #predicted_k = real_k
     #print "MAE between gapstats and real: " + str(calculate_error(calculate_MAE, predicted_k, real_k))
 
     
     words = open(wordlist_file).readlines()
-    f = open('results/total_results_withSVD_%d_goldK'%nfactor, 'w')
+    f = open('results/SVD%d'%nfactor, 'w')
     #f = open('results/total_results_gold_k', 'w')
     f.write("word, homogeneity_score, completeness_score, v_measure, randIndex, num_of_inst, num_of_feature\n")
     words = [word.strip() for word in words]
@@ -92,19 +92,21 @@ def discriminate(factorization=False, nfactor=40):
 
         #print "Test on " + word
         X = get_vector_from_vec(word)
-        m, n = X.shape
         
         if factorization:
             U, sigma, V = svd(X)
-
             Sigma = np.zeros_like(X)
+
             n = min(X.shape)
             Sigma[:n,:n] = np.diag(sigma)
             #print np.dot(U,np.dot(Sigma,V))
             X1 = np.dot(U[:, :nfactor], np.dot(Sigma[:nfactor,:], V[:, :]))
+            m, n = X1.shape
             error = sum(sum(np.abs(X - X1))) / (m*n)
             #print "error is %0.4f" % error
             X = U[:, :nfactor]
+
+        m, n = X.shape
 
         labels = get_labels(word)
         km = KMeans(predicted_k[i], init='random', max_iter=100, n_init=1, verbose=0)
@@ -156,7 +158,7 @@ def main():
     #words = open(wordlist_file).readlines()
     #words = [word.strip() for word in words]
     #write_vectors_aft_svd(words)
-    discriminate(factorization=True, nfactor=100)
+    discriminate(factorization=True, nfactor=40)
     #discriminate(factorization=False, nfactor=60)
 
 

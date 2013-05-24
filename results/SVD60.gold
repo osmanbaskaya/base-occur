@@ -1,4 +1,4 @@
-word, homogeneity_score, completeness_score, v_measure, randIndex, num_of_inst, num_of_feature
+     word,  homogeneity, completeness, v_meas, randIndex,  #instance, #feature  #gapstat   #real  #svd_error(MAE)
       affect.v   1.00000   1.00000   1.00000   1.00000    64    64  1  10.0462
        allow.v   0.00207   0.01348   0.00359  -0.01198   143   143  2  20.1494
     announce.v   0.75583   0.43087   0.54886   0.65611   108   108  2  20.1710
